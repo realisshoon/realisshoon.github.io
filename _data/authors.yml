@@ -1,0 +1,9 @@
+# 메인 저자 정보
+realisshoon:
+  name: 한승훈
+  picture: /images/profile.jpg
+  email: hsgn21@naver.com
+  links:
+    - title: GitHub
+      url: https://github.com/realisshoon
+      icon: fab fa-github-square 
