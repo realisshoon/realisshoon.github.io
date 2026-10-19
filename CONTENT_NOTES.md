@@ -58,3 +58,12 @@ Cloud Browser에서 ugie01.github.io의 실제 1440px·390px 화면을 열어 He
 - 상세 페이지 12개를 포함한 로컬 URL·미디어·원본 요약 총 37개 경로 HTTP 200.
 - Cloud Browser에서 PC/390px 모바일, SoC 필터, 상세 이동, 파형 확대, GIF 재생/정지, 모바일 메뉴 표시 확인.
 - 별도 RTL/UVM 프로젝트 저장소는 수정하지 않음. 포트폴리오 저장소만 사용자 승인 범위에서 교체.
+
+
+## 대표이미지 갱신 (2026-10-19)
+
+- 메인 웹 카드와 A4 요약본이 같은 프로젝트 `cover`를 참조합니다.
+- UART/FIFO OOP: 실제 완료보고서 `word/media/image7.png`(5.1.2 UART RX TC-03)와 `image9.png`(4.2 Testbench)를 추출했습니다. UART Unit 파형을 Integration 결과로 표시하지 않습니다.
+- AXI4-Lite Master/Slave: 기존 Notion 소개 커버를 사용하며 파형·검증 결과 이미지로 표현하지 않습니다.
+- Backend는 업무 경험으로 공개 가능한 회사 내부 화면이 없어 텍스트를 유지합니다.
+- A4 목록에 대표이미지를 넣으면서 전체 분량을 6장으로 조정했습니다.

@@ -602,7 +602,7 @@
       "OOP Verification",
       "Scoreboard"
     ],
-    "cover": null,
+    "cover": "uart-oop-rx-waveform.png",
     "featured": false,
     "teamGoal": "",
     "teamResult": "",
@@ -630,7 +630,22 @@
         "status": "historical-verified"
       }
     ],
-    "media": [],
+    "media": [
+      {
+        "src": "uart-oop-architecture.png",
+        "title": "SystemVerilog OOP 검증 환경",
+        "caption": "실제 완료보고서 4.2 Testbench 원본 · Generator / Driver / Monitor / Scoreboard 구조",
+        "type": "image",
+        "poster": null
+      },
+      {
+        "src": "uart-oop-rx-waveform.png",
+        "title": "UART RX 연속 패킷 검증 파형",
+        "caption": "실제 완료보고서 5.1.2 TC-03 원본 · UART RX Unit의 연속 패킷 수신 검증",
+        "type": "image",
+        "poster": null
+      }
+    ],
     "evidence": [
       {
         "label": "완료보고서",
@@ -640,10 +655,12 @@
     "github": null,
     "notion": "https://app.notion.com/p/39261f29205481ebbf7ef7752d9bc8fe",
     "limitations": [
-      "UVM 프로젝트와 구분되는 SystemVerilog OOP 검증입니다. 원본 파형 추가 시 함께 갱신할 예정입니다."
+      "UVM 프로젝트와 구분되는 SystemVerilog OOP 검증입니다. 파형과 구조도는 기존 완료보고서의 보관본입니다."
     ],
     "sources": [
-      "Notion UART/FIFO OOP · 완료보고서"
+      "Notion UART/FIFO OOP · 완료보고서",
+      "SystemVerilog 검증 완료보고서 · word/media/image9.png · 4.2 Testbench",
+      "SystemVerilog 검증 완료보고서 · word/media/image7.png · UART RX TC-03"
     ],
     "techStack": [
       "SystemVerilog OOP",
@@ -667,7 +684,7 @@
       "AXI4-Lite",
       "FSM"
     ],
-    "cover": null,
+    "cover": "axi-master-slave-notion-cover.svg",
     "featured": false,
     "teamGoal": "",
     "teamResult": "",
@@ -683,7 +700,15 @@
     ],
     "troubleshooting": [],
     "verification": [],
-    "media": [],
+    "media": [
+      {
+        "src": "axi-master-slave-notion-cover.svg",
+        "title": "프로젝트 소개 커버",
+        "caption": "기존 Notion 프로젝트 소개 커버 · 검증 결과 화면과 구분",
+        "type": "image",
+        "poster": null
+      }
+    ],
     "evidence": [],
     "github": null,
     "notion": "https://app.notion.com/p/38761f29205480a4b3c3c2ffdc01ba6d",
@@ -691,7 +716,8 @@
       "원본 세부 파형과 수행 기간은 추가 정리 대상입니다. 확정되지 않은 수치나 Coverage는 표시하지 않습니다."
     ],
     "sources": [
-      "Notion AXI4-Lite Master/Slave 속성"
+      "Notion AXI4-Lite Master/Slave 속성",
+      "기존 Notion 프로젝트 소개 커버 · 2026-10-19 조회"
     ],
     "techStack": [
       "Verilog / SystemVerilog",

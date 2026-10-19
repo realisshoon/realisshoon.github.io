@@ -43,6 +43,6 @@ try{
   const directory=path.join(root,base,'downloads');await fs.mkdir(directory,{recursive:true});
   await fs.writeFile(path.join(directory,'Han_SeungHun_Portfolio_Summary.pdf'),bytes);
  }
- const count=JSON.parse(await fs.readFile(path.join(root,'src/content/print.json'),'utf8')).projects.length+2;
+ const count=JSON.parse(await fs.readFile(path.join(root,'src/content/print.json'),'utf8')).projects.length+1+JSON.parse(await fs.readFile(path.join(root,'src/content/print.json'),'utf8')).archivePages.length;
  console.log(`Exported ${count}-page A4 portfolio PDF (${(bytes.length/1024/1024).toFixed(2)} MiB)`);
 }finally{await new Promise(resolve=>server.close(resolve));await fs.rm(temp,{recursive:true,force:true});}

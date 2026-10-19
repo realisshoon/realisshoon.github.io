@@ -39,7 +39,7 @@ npm run preview
 
 ## A4 요약본 / PDF 갱신
 
-`print.html`은 프로필 1장, 대표 프로젝트 3장, 프로젝트·교육·경력 1장으로 구성됩니다. 메인 웹 전체를 인쇄하지 않고 A4 전용 레이아웃을 생성합니다. `src/content/projects.json`의 역할·검증 값·범위·출처·이미지를 그대로 참조하며, `src/content/print.json`은 대표 프로젝트 선택과 요약 편집을 담당합니다. 핵심 사실을 바꿀 때에는 요약 표현도 검토하세요.
+`print.html`은 프로필 1장, 대표 프로젝트 3장, 프로젝트·교육·경력 2장으로 구성됩니다. 메인 웹 전체를 인쇄하지 않고 A4 전용 레이아웃을 생성합니다. `src/content/projects.json`의 역할·검증 값·범위·출처·이미지를 그대로 참조하며, `src/content/print.json`은 대표 프로젝트 선택과 요약 편집을 담당합니다. 핵심 사실을 바꿀 때에는 요약 표현도 검토하세요.
 
 ```bash
 npm run check:content
@@ -47,7 +47,7 @@ npm run build
 npm run export:pdf
 ```
 
-마지막 명령은 설치된 Google Chrome의 headless 렌더러를 사용하며, 기존 브라우저 세션과 분리됩니다. 기본 실행 경로를 찾지 못하면 `CHROME_BIN` 환경 변수로 지정합니다. 완성본은 `public/downloads/Han_SeungHun_Portfolio_Summary.pdf` 및 `dist/downloads/`에 함께 저장됩니다. 실제 출력 후에는 5페이지, 한글·이미지·하단 여백·검증 범위를 확인합니다.
+마지막 명령은 설치된 Google Chrome의 headless 렌더러를 사용하며, 기존 브라우저 세션과 분리됩니다. 기본 실행 경로를 찾지 못하면 `CHROME_BIN` 환경 변수로 지정합니다. 완성본은 `public/downloads/Han_SeungHun_Portfolio_Summary.pdf` 및 `dist/downloads/`에 함께 저장됩니다. 실제 출력 후에는 6페이지, 한글·이미지·하단 여백·검증 범위를 확인합니다.
 
 GitHub Actions도 같은 명령으로 매 배포 시 PDF를 다시 생성하므로 웹과 다운로드 PDF가 같은 데이터 revision을 사용합니다. 웹에서 `A4 요약본 미리보기`를 열거나 `Portfolio PDF`로 바로 다운로드할 수 있습니다. `resumePdf`는 확정본이 없어 계속 `null`이며 이력서 다운로드 버튼은 표시하지 않습니다. 폰트는 Noto Sans CJK KR의 한글·라틴 서브셋이고 라이선스는 `public/assets/fonts/OFL.txt`에 있습니다. 빌드 시 `dist/content.json`도 생성됩니다.
 
