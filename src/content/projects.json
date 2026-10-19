@@ -317,7 +317,7 @@
   },
   {
     "id": "fpga-camera",
-    "name": "FPGA Camera Image Processing",
+    "name": "FPGA VGA 지휘게임",
     "category": "rtl",
     "period": "2026.08.31 – 09.08",
     "kind": "팀 프로젝트",
