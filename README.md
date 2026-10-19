@@ -24,7 +24,7 @@ npm run preview
 | 경로 | 용도 |
 |---|---|
 | `src/content/profile.json` | 소개, 사진, 연락처, 교육/경력, PDF 경로 |
-| `src/content/projects.json` | 웹사이트·향후 A4 PDF에서 공유할 프로젝트 사실 원본 |
+| `src/content/projects.json` | 웹사이트·A4 PDF에서 공유하는 프로젝트 사실 원본 |
 | `src/content/categories.json` | 카테고리명과 필터 |
 | `public/assets/` | 실제 이미지·GIF·영상 |
 | `public/evidence/` | 원본에서 가져온 기존 검증 요약 |
@@ -37,7 +37,19 @@ npm run preview
 
 검증 결과를 추가할 때 `verification[]`의 `label`, `value`, `scope`, `source`를 함께 갱신합니다. 실제 완료된 결과에만 `status: historical-verified`를 사용합니다. 과거 결과와 새 결과의 revision·조건을 구분하고, 문구와 미디어 caption도 함께 확인합니다. 기대 결과를 미리 PASS로 기재하지 않습니다.
 
-`profile.json`의 `portfolioPdf`와 `resumePdf`는 현재 `null`입니다. PDF가 확정되면 파일을 `public/downloads/`에 넣고 상대 경로를 지정합니다. 그때 실제 다운로드 버튼이 나타납니다. A4 PDF는 웹페이지 인쇄가 아닌 별도 편집 대상이며 공통 프로젝트 JSON을 사실 원본으로 사용합니다. 빌드 시 `dist/content.json`도 생성됩니다.
+## A4 요약본 / PDF 갱신
+
+`print.html`은 프로필 1장, 대표 프로젝트 3장, 프로젝트·교육·경력 1장으로 구성됩니다. 메인 웹 전체를 인쇄하지 않고 A4 전용 레이아웃을 생성합니다. `src/content/projects.json`의 역할·검증 값·범위·출처·이미지를 그대로 참조하며, `src/content/print.json`은 대표 프로젝트 선택과 요약 편집을 담당합니다. 핵심 사실을 바꿀 때에는 요약 표현도 검토하세요.
+
+```bash
+npm run check:content
+npm run build
+npm run export:pdf
+```
+
+마지막 명령은 설치된 Google Chrome의 headless 렌더러를 사용하며, 기존 브라우저 세션과 분리됩니다. 기본 실행 경로를 찾지 못하면 `CHROME_BIN` 환경 변수로 지정합니다. 완성본은 `public/downloads/Han_SeungHun_Portfolio_Summary.pdf` 및 `dist/downloads/`에 함께 저장됩니다. 실제 출력 후에는 5페이지, 한글·이미지·하단 여백·검증 범위를 확인합니다.
+
+GitHub Actions도 같은 명령으로 매 배포 시 PDF를 다시 생성하므로 웹과 다운로드 PDF가 같은 데이터 revision을 사용합니다. 웹에서 `A4 요약본 미리보기`를 열거나 `Portfolio PDF`로 바로 다운로드할 수 있습니다. `resumePdf`는 확정본이 없어 계속 `null`이며 이력서 다운로드 버튼은 표시하지 않습니다. 폰트는 Noto Sans CJK KR의 한글·라틴 서브셋이고 라이선스는 `public/assets/fonts/OFL.txt`에 있습니다. 빌드 시 `dist/content.json`도 생성됩니다.
 
 ## GitHub Pages 배포
 

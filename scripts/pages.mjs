@@ -16,3 +16,5 @@ fs.writeFileSync('dist/.nojekyll','');
 fs.writeFileSync('dist/404.html',template);
 fs.writeFileSync('dist/content.json',JSON.stringify({profile:JSON.parse(fs.readFileSync('src/content/profile.json')),projects},null,2));
 console.log(`Prepared ${projects.length} direct project URLs, shared content.json and .nojekyll`);
+
+await import('./print.mjs');

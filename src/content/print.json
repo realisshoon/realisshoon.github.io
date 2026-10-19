@@ -1,0 +1,54 @@
+{
+  "title": "Han SeungHun - Portfolio Summary",
+  "edition": "2026.10",
+  "projects": [
+    {
+      "id": "cnn-motion-soc",
+      "kicker": "01 - RTL DESIGN / UVM VERIFICATION",
+      "status": "팀 최종 시연 · 기존 기능 검증",
+      "result": "verification",
+      "implementations": [
+        { "title": "Depthwise / Pointwise RTL", "text": "DW 32채널 MAC + 공유 재양자화. PW 128 MAC과 2-Pixel Slot 구성." },
+        { "title": "Golden / UVM Verification", "text": "Python Golden과 중간 Tensor·최종 관절값 비교. Random Backpressure 검증." },
+        { "title": "HW-SW Integration", "text": "Color Marker RTL, AXI4-Lite 연동 참여. Unity 시각화·CSV/UART 입력 연동 참여." }
+      ],
+      "images": [0, 2],
+      "flow": [
+        ["Camera", "팀 영상 입력"], ["CNN RTL", "DW / PW 연산부"], ["Joint / 3D", "팀 좌표 복원"], ["Robot / Unity", "팀 제어·시각화"]
+      ],
+      "scope": "수치는 CNN RTL 기능 검증 범위입니다. DMA·DDR 이동은 TB에서 모사했습니다. 전체 SoC 검증·FPGA 처리 성능 수치가 아니며, 추가 UVM·Coverage 보강은 진행 중입니다."
+    },
+    {
+      "id": "spi-i2c",
+      "kicker": "02 - RTL DESIGN / UVM / FPGA",
+      "status": "개인 설계·검증 프로젝트",
+      "result": "verification",
+      "implementations": [
+        { "title": "SPI Master / Slave RTL", "text": "Mode 0 Full-Duplex 설계. 양방향 송수신 데이터를 Scoreboard로 비교." },
+        { "title": "Protocol Verification", "text": "Sequence·Driver·Monitor·Scoreboard 구성. I2C 주소·Read/Write·ACK/NACK 관찰." },
+        { "title": "FPGA Validation", "text": "Basys3 두 대를 연결하고 Logic Analyzer로 Pin-Level Protocol 동작 확인." }
+      ],
+      "images": [0, 1],
+      "flow": [
+        ["Sequence", "입력 시나리오"], ["Driver / DUT", "Protocol 구동"], ["Monitor", "Pin-Level 관찰"], ["Scoreboard", "데이터·Coverage"]
+      ],
+      "scope": "완료보고서의 기존 검증 결과입니다. SPI Functional Coverage는 59.59%이며 미도달 Pattern Bin이 있습니다. I2C의 100%와 합산하지 않습니다. 추가 서버 검증은 반영하지 않았습니다."
+    },
+    {
+      "id": "axi-multi-peripheral",
+      "kicker": "03 - SOC / EMBEDDED & FIRMWARE",
+      "status": "개인 SoC 통합·FPGA 검증",
+      "result": "verification",
+      "implementations": [
+        { "title": "MicroBlaze SoC", "text": "BRAM·AXI Interconnect와 Address Map 구성. UART·Timer·I2C LCD·SPI 통합." },
+        { "title": "MMIO / Register Control", "text": "Vitis C에서 TXDATA → START → DONE Polling → RXDATA 흐름 구성." },
+        { "title": "AXI-SPI UVM", "text": "Register Block·SPI Master 검증. One-Cycle START와 Sticky DONE 상태 처리." }
+      ],
+      "images": [0, 2],
+      "flow": [
+        ["Vitis C", "MMIO 요청"], ["MicroBlaze", "AXI4-Lite Bus"], ["Register", "설정·START·상태"], ["Peripheral", "UART / Timer / SPI"]
+      ],
+      "scope": "UVM 결과는 AXI-SPI IP-level 범위입니다. Functional Coverage 100%는 TXDATA / START_WRITE / DONE_STATUS / SPI_COMPLETE 항목이며 전체 SoC Coverage가 아닙니다."
+    }
+  ]
+}
