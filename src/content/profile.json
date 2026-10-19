@@ -1,0 +1,106 @@
+{
+  "name": "Han SeungHun",
+  "nameKo": "한승훈",
+  "position": "RTL Design & Verification Engineer",
+  "year": "2026",
+  "intro": [
+    "Peripheral RTL 설계부터 UVM 검증, FPGA 동작 확인까지 경험했습니다.",
+    "파형과 데이터 흐름을 따라 원인을 좁히고, 검증 근거로 설계를 설명합니다."
+  ],
+  "github": "https://github.com/realisshoon",
+  "notion": "https://app.notion.com/p/Han-SeungHun-s-Portfolio-ace61f2920548207b58d01260d14c80a",
+  "email": "hsgn21@naver.com",
+  "portrait": "profile.jpg",
+  "portfolioPdf": null,
+  "resumePdf": null,
+  "facts": [
+    {
+      "label": "관심 분야",
+      "value": "FPGA RTL Design · Digital H/W · RTL Verification"
+    },
+    {
+      "label": "주요 기술",
+      "value": "Verilog · SystemVerilog/UVM\nAXI4-Lite · FPGA"
+    },
+    {
+      "label": "설계에서 시스템까지",
+      "value": "SoC · MMIO · HW-SW Integration"
+    },
+    {
+      "label": "이메일",
+      "value": "hsgn21@naver.com"
+    }
+  ],
+  "skills": [
+    {
+      "title": "RTL Design & Verification",
+      "items": [
+        "Verilog / SystemVerilog",
+        "FSM · Datapath · Peripheral RTL",
+        "UVM · Scoreboard · Functional Coverage",
+        "VCS / Verdi · Vivado / FPGA"
+      ],
+      "note": "직접 설계·검증한 교육 프로젝트 중심"
+    },
+    {
+      "title": "SoC / Embedded",
+      "items": [
+        "AXI4-Lite · MicroBlaze",
+        "MMIO / Register Control",
+        "Embedded C / Vitis",
+        "HW-SW Integration"
+      ],
+      "note": "Bus·Register부터 실제 Peripheral 제어까지"
+    },
+    {
+      "title": "AI / Computer Vision",
+      "items": [
+        "Python · Computer Vision",
+        "YOLO · Jetson",
+        "Tracking / Re-ID"
+      ],
+      "note": "멀티카메라 서버·DB·시스템 연동 경험"
+    },
+    {
+      "title": "Software / Backend",
+      "items": [
+        "Python / Django",
+        "Database · API Integration",
+        "Linux · Data Processing"
+      ],
+      "note": "Backend 개발 실무 5개월"
+    }
+  ],
+  "aboutTitle": "설계하고 검증하며,\n시스템까지 연결합니다",
+  "about": [
+    "Python/Django Backend에서 DB와 API를 연결하며 데이터 흐름을 다뤘습니다. 이후 소프트웨어의 요청이 Register와 Bus를 거쳐 하드웨어 동작으로 이어지는 구조에 관심을 넓혔습니다.",
+    "반도체 설계 교육에서는 Peripheral RTL, AXI4-Lite SoC, UVM 검증과 FPGA 구현을 수행했습니다. 기능의 동작뿐 아니라 Protocol, Timing, 검증 범위를 함께 확인하는 엔지니어를 목표로 합니다."
+  ],
+  "timeline": [
+    {
+      "period": "2026.03 – 2026.10",
+      "title": "온디바이스AI 시스템반도체 설계 2기",
+      "description": "대한상공회의소 서울기술교육센터 · RTL / UVM / FPGA / SoC"
+    },
+    {
+      "period": "2025.12 – 2026.01",
+      "title": "팹리스 실무형 일경험 프로그램",
+      "description": "한국팹리스산업협회 · Embedded Linux / HW-SW Interface · 우수상"
+    },
+    {
+      "period": "2025.07 – 2025.11",
+      "title": "글로벌반도체 설계 전문가 과정",
+      "description": "서강 시스템반도체설계 교육센터 · Digital Design Flow 학습"
+    },
+    {
+      "period": "2023.12 – 2024.04 · 경력",
+      "title": "케이유융합소프트웨어연구센터㈜",
+      "description": "SW기술사업화팀 연구원 · Python/Django Backend"
+    },
+    {
+      "period": "2021.03 – 2023.08 · 학사",
+      "title": "상명대학교 휴먼AI공학과",
+      "description": "졸업 당시 학과명: 휴먼지능정보공학과"
+    }
+  ]
+}

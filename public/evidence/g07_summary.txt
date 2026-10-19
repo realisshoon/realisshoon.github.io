@@ -1,0 +1,9 @@
+G07 RANDOM STALL / DELAY REGRESSION
+seed=1 PASS
+seed=11 PASS
+seed=101 PASS
+seed=1001 PASS
+PASS=4
+FAIL=0
+TOTAL=4/4
+seed=1 stimulus SHA256 reproducibility=PASS

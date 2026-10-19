@@ -1,0 +1,22 @@
+[
+  {
+    "id": "rtl",
+    "name": "RTL Design & Verification",
+    "short": "RTL / Verification"
+  },
+  {
+    "id": "soc",
+    "name": "SoC / Embedded & Firmware",
+    "short": "SoC / Embedded"
+  },
+  {
+    "id": "ai",
+    "name": "AI / Computer Vision",
+    "short": "AI / Vision"
+  },
+  {
+    "id": "software",
+    "name": "Software / Backend",
+    "short": "Software / Backend"
+  }
+]

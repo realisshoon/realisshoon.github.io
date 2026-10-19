@@ -1,0 +1,36 @@
+============================================================
+G02 FULL 29-OP BIT-EXACT CHECK
+============================================================
+OP00 PASS 393216/393216 shape=(128, 128, 24) dtype=int8
+OP01 PASS 393216/393216 shape=(128, 128, 24) dtype=int8
+OP02 PASS 786432/786432 shape=(128, 128, 48) dtype=int8
+OP03 PASS 196608/196608 shape=(64, 64, 48) dtype=int8
+OP04 PASS 393216/393216 shape=(64, 64, 96) dtype=int8
+OP05 PASS 393216/393216 shape=(64, 64, 96) dtype=int8
+OP06 PASS 393216/393216 shape=(64, 64, 96) dtype=int8
+OP07 PASS 98304/98304 shape=(32, 32, 96) dtype=int8
+OP08 PASS 196608/196608 shape=(32, 32, 192) dtype=int8
+OP09 PASS 196608/196608 shape=(32, 32, 192) dtype=int8
+OP10 PASS 196608/196608 shape=(32, 32, 192) dtype=int8
+OP11 PASS 49152/49152 shape=(16, 16, 192) dtype=int8
+OP12 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP13 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP14 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP15 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP16 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP17 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP18 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP19 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP20 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP21 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP22 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP23 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP24 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP25 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP26 PASS 98304/98304 shape=(16, 16, 384) dtype=int8
+OP27 PASS 4352/4352 shape=(16, 16, 17) dtype=int8
+OP28 PASS 8704/8704 shape=(16, 16, 34) dtype=int16
+============================================================
+G02 RESULT : 29/29 OP PASS
+ELEMENTS   : 5174016/5174016 bit-exact matched
+============================================================
