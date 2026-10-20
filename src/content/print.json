@@ -5,7 +5,7 @@
     {
       "id": "cnn-motion-soc",
       "kicker": "01 - RTL DESIGN / UVM VERIFICATION",
-      "status": "팀 최종 시연 · 기존 기능 검증",
+      "status": "DW/PW 단위 검증 · 팀 완료 시연",
       "result": "verification",
       "implementations": [
         {
@@ -14,7 +14,7 @@
         },
         {
           "title": "Golden / UVM Verification",
-          "text": "Python Golden과 중간 Tensor·최종 관절값 비교. Random Backpressure 검증."
+          "text": "공통 UVM·G01–G07 구성. 과거 Golden 회귀와 최신 DW/PW 단위 TB 결과 구분."
         },
         {
           "title": "HW-SW Integration",
@@ -43,25 +43,25 @@
           "팀 제어·시각화"
         ]
       ],
-      "scope": "수치는 CNN RTL 기능 검증 범위입니다. DMA·DDR 이동은 TB에서 모사했습니다. 전체 SoC 검증·FPGA 처리 성능 수치가 아니며, 추가 UVM·Coverage 보강은 진행 중입니다."
+      "scope": "2026.10.19 XSim 단위 TB 결과입니다. 전체 Golden UVM 회귀는 입력 자료 문제로 차단돼 있으며 FPGA·로봇 통합 재검증은 미수행입니다. 과거 Golden 결과는 웹 상세에서 별도 확인할 수 있습니다."
     },
     {
       "id": "spi-i2c",
       "kicker": "02 - RTL DESIGN / UVM / FPGA",
-      "status": "개인 설계·검증 프로젝트",
+      "status": "3인 팀 · 개인 SPI RTL 설계",
       "result": "verification",
       "implementations": [
         {
-          "title": "SPI Master / Slave RTL",
-          "text": "Mode 0 Full-Duplex 설계. 양방향 송수신 데이터를 Scoreboard로 비교."
+          "title": "My Role · SPI RTL",
+          "text": "SPI 송수신 FSM·Shift Register, SCLK·CS·MOSI/MISO Full-Duplex 경로 설계."
         },
         {
-          "title": "Protocol Verification",
-          "text": "Sequence·Driver·Monitor·Scoreboard 구성. I2C 주소·Read/Write·ACK/NACK 관찰."
+          "title": "Team · UVM Verification",
+          "text": "팀 환경에서 SPI/I2C 송수신·ACK/NACK을 Scoreboard와 Coverage로 확인."
         },
         {
-          "title": "FPGA Validation",
-          "text": "Basys3 두 대를 연결하고 Logic Analyzer로 Pin-Level Protocol 동작 확인."
+          "title": "Team · FPGA Validation",
+          "text": "Basys3 두 대의 통신과 Logic Analyzer Pin-Level 동작 확인."
         }
       ],
       "images": [
@@ -86,7 +86,7 @@
           "데이터·Coverage"
         ]
       ],
-      "scope": "완료보고서의 기존 검증 결과입니다. SPI Functional Coverage는 59.59%이며 미도달 Pattern Bin이 있습니다. I2C의 100%와 합산하지 않습니다. 추가 서버 검증은 반영하지 않았습니다."
+      "scope": "개인 담당은 SPI Master/Slave RTL입니다. 표시한 UVM·보드 결과와 I2C ACK 수정은 팀 성과입니다. SPI Functional Coverage 59.59%와 I2C 100%를 구분합니다."
     },
     {
       "id": "axi-multi-peripheral",
@@ -134,20 +134,19 @@
   ],
   "archivePages": [
     {
-      "title": "RTL & Embedded Projects",
-      "kicker": "MORE PROJECTS / RTL & EMBEDDED",
+      "title": "RTL Design & Verification",
+      "kicker": "MORE PROJECTS / RTL & VERIFICATION",
       "categories": [
-        "rtl",
-        "soc"
+        "rtl"
       ],
       "experience": false
     },
     {
-      "title": "AI & Software Experience",
-      "kicker": "MORE PROJECTS / AI & SOFTWARE",
+      "title": "SoC, AI & Experience",
+      "kicker": "AI PROJECTS / EDUCATION & CAREER",
       "categories": [
-        "ai",
-        "software"
+        "soc",
+        "ai"
       ],
       "experience": true
     }

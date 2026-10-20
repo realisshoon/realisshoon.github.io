@@ -17,6 +17,10 @@ for(const p of projects){
 fs.writeFileSync('dist/.nojekyll','');
 fs.writeFileSync('dist/404.html',template);
 fs.writeFileSync('dist/content.json',JSON.stringify({profile:JSON.parse(fs.readFileSync('src/content/profile.json')),projects},null,2));
+const redirects=JSON.parse(fs.readFileSync('src/content/redirects.json','utf8'));
+for(const [id,url] of Object.entries(redirects)){
+ fs.writeFileSync(path.join('dist/projects',`${id}.html`),`<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${escape(url)}"><title>포트폴리오로 이동 | Han SeungHun</title></head><body><a href="${escape(url)}">포트폴리오로 이동</a></body></html>`);
+}
 console.log(`Prepared ${projects.length} direct project URLs, shared content.json and .nojekyll`);
 
 await import('./print.mjs');

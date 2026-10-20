@@ -33,13 +33,15 @@ npm run preview
 | `scripts/pages.mjs` | GitHub Pages 직접 접속용 프로젝트 HTML 생성 |
 | `dist/` | 빌드 결과. 정적 서버 배포 가능 |
 
+프로젝트 목록은 실제 공개 코드가 있는 12개로 구성합니다. Backend는 About의 경력에 두고, 코드가 확인되지 않은 위험소리는 목록에서 제외합니다. 빈 프로젝트 분야 필터는 표시하지 않습니다. 제거된 상세 주소는 `src/content/redirects.json`에 따라 관련 섹션으로 이동합니다.
+
 프로젝트 텍스트는 `src/content/projects.json`에서 수정합니다. 컴포넌트에는 프로젝트 설명을 넣지 않습니다. `id`는 URL이므로 발행 후에는 가급적 유지합니다. 이미지는 `public/assets/`에 넣고 `cover` 또는 `media[].src`를 바꿉니다. `media[].type`은 `image`, `gif`, `video`를 지원합니다. GIF의 정지 이미지는 `media[].poster`, 카드 정지 이미지는 `coverPoster`로 지정합니다. 카드의 검증 문구는 `featuredVerification`, 실제 기술 목록은 `techStack`, 역할 태그는 `tags`에서 관리합니다. 영상 파일에는 브라우저가 재생 가능한 MP4/H.264를 권장합니다.
 
-검증 결과를 추가할 때 `verification[]`의 `label`, `value`, `scope`, `source`를 함께 갱신합니다. 실제 완료된 결과에만 `status: historical-verified`를 사용합니다. 과거 결과와 새 결과의 revision·조건을 구분하고, 문구와 미디어 caption도 함께 확인합니다. 기대 결과를 미리 PASS로 기재하지 않습니다.
+검증 결과를 추가할 때 `verification[]`의 `label`, `value`, `scope`, `source`를 함께 갱신합니다. 완료 당시 보관 결과는 `status: historical-verified`, 실행 로그로 확인한 현재 결과는 `status: verified`를 사용합니다. CNN의 과거 Golden 결과는 `archivedVerification[]`에서 별도로 관리합니다. 과거 결과와 새 결과의 revision·조건을 구분하고, 문구와 미디어 caption도 함께 확인합니다. 기대 결과를 미리 PASS로 기재하지 않습니다.
 
 ## A4 요약본 / PDF 갱신
 
-`print.html`은 프로필 1장, 대표 프로젝트 3장, 프로젝트·교육·경력 2장으로 구성됩니다. 메인 웹 전체를 인쇄하지 않고 A4 전용 레이아웃을 생성합니다. `src/content/projects.json`의 역할·검증 값·범위·출처·이미지를 그대로 참조하며, `src/content/print.json`은 대표 프로젝트 선택과 요약 편집을 담당합니다. 핵심 사실을 바꿀 때에는 요약 표현도 검토하세요.
+`print.html`은 프로필 1장, 대표 프로젝트 3장, RTL 목록 1장, SoC·AI·교육·경력 1장으로 구성됩니다. 메인 웹 전체를 인쇄하지 않고 A4 전용 레이아웃을 생성합니다. `src/content/projects.json`의 역할·검증 값·범위·출처·이미지를 그대로 참조하며, `src/content/print.json`은 대표 프로젝트 선택과 요약 편집을 담당합니다. 핵심 사실을 바꿀 때에는 요약 표현도 검토하세요.
 
 ```bash
 npm run check:content
