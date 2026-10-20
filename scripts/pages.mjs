@@ -1,7 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {googleTag} from './analytics.mjs';
 const projects=JSON.parse(fs.readFileSync('src/content/projects.json','utf8'));
-const template=fs.readFileSync('dist/index.html','utf8');
+const template=fs.readFileSync('dist/index.html','utf8').replace('<head>',`<head>${googleTag}`);
+fs.writeFileSync('dist/index.html',template);
 fs.mkdirSync('dist/projects',{recursive:true});
 const escape=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 for(const p of projects){
