@@ -72,3 +72,15 @@ GitHub Actions도 같은 명령으로 매 배포 시 PDF를 다시 생성하므�
 ## 검증 범위
 
 자세한 검수와 보완 대상은 `CONTENT_NOTES.md`를 확인하세요. 콘텐츠 검사는 ID 중복, 분류, 미디어 존재, 결과별 근거와 범위를 확인합니다. 외부 Notion/Drive 링크는 방문자의 접근 권한에 따라 로그인이 필요할 수 있습니다.
+
+## 동작 시연 GIF
+
+영상이 확인된 프로젝트는 `projects.json`의 `demos[]`에서 관리합니다. 메인 카드는 첫 번째 GIF, 상세는 전체 GIF와 `source` 원본 링크를 표시합니다. 제목·설명·경로·정지 이미지·시작 시점·재생 길이·파일 크기를 함께 기록합니다. 화면 밖의 카드는 JPG로 교체해 GIF 로딩과 재생을 줄이며 재생/일시정지·동작 줄이기를 지원합니다. PDF는 기존 `cover`/`media`의 정지 이미지를 유지합니다.
+
+원본과 변환 기록은 `DEMO_SOURCES.md`, `src/content/demo-sources.json`을 확인하세요. 원본 파일을 별도 폴더에 내려받은 뒤 FFmpeg로 다시 생성할 수 있습니다.
+
+```sh
+python3 scripts/prepare-demo-gifs.py --source-dir /path/to/originals --ffmpeg /path/to/ffmpeg
+npm run check:content
+npm run build
+```

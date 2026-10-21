@@ -7,3 +7,14 @@
 .projects-section>.featured{margin-top:28px}
 
 .print-preview-link{display:block;font-size:12px;margin-bottom:20px;text-decoration:underline;text-underline-offset:4px;color:#ccd7e8}
+
+/* Recorded demo GIFs load and animate only while their card is visible. */
+.project-visual{position:relative;min-width:0;background:#edf0f5}
+.project-visual .project-image{height:100%}
+.project-visual.has-demo .project-image{padding-bottom:48px}
+.card-demo-toggle{position:absolute;right:12px;bottom:12px;z-index:1;min-height:32px;border:1px solid #c5cfdd;background:rgba(255,255,255,.96);color:var(--primary);padding:6px 10px;font-size:10px;font-weight:700}
+.card-demo-toggle:hover{background:#fff;border-color:var(--primary)}
+.demo-source{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 14px;background:var(--pale);font-size:11px;color:var(--muted);border:1px solid var(--line);border-top:0}
+.demo-source a{font-weight:700;color:var(--primary)}
+@media(max-width:700px){.project-visual .project-image,.featured .project-visual .project-image{height:auto;aspect-ratio:1.45}.project-visual.has-demo .project-image{padding-bottom:40px}.demo-source{font-size:10px;padding:10px 12px}.card-demo-toggle{right:10px;bottom:8px}}
+.lightbox img{max-width:100%;height:auto}
