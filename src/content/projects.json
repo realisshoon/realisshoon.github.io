@@ -202,9 +202,9 @@
     "name": "SPI / I2C RTL & UVM Verification",
     "category": "rtl",
     "period": "2026.06.11 – 06.18",
-    "kind": "3인 팀 프로젝트",
+    "kind": "개인 프로젝트",
     "summary": "SPI/I2C Master·Slave를 Simulation과 Basys3 Board-to-Board 통신으로 검증.",
-    "role": "SPI Master/Slave RTL 설계. I2C·UVM·보드 검증 결과는 팀 공동 성과.",
+    "role": "SPI/I2C Master·Slave RTL 설계, UVM 검증 환경 구성 및 Basys3 보드 검증.",
     "tags": [
       "RTL Design",
       "UVM Verification",
@@ -212,13 +212,13 @@
     ],
     "cover": "slide-24.png",
     "featured": false,
-    "teamGoal": "SPI/I2C RTL과 UVM 환경을 구성하고 Simulation·Basys3 통신으로 확인.",
-    "teamResult": "SPI 48 Pass / 0 Fail, I2C 14 Pass / 0 Fail · 팀 검증 결과.",
-    "overview": "SPI/I2C Master·Slave를 설계하고 UVM과 Basys3 보드 통신으로 확인한 팀 프로젝트입니다. 개인 담당은 SPI Master/Slave RTL이며 I2C 구현·UVM 검증 결과는 팀 성과로 구분합니다.",
+    "teamGoal": "",
+    "teamResult": "",
+    "overview": "SPI/I2C Master·Slave RTL 설계부터 UVM 검증, Basys3 보드 간 통신까지 직접 수행한 개인 프로젝트입니다. Sequence·Monitor·Scoreboard로 송수신과 ACK/NACK을 확인하고 Functional Coverage를 분석했습니다.",
     "contributions": [
-      "SPI 송수신 FSM·Shift Register 구현",
-      "SCLK·CS·MOSI/MISO 제어와 Full-Duplex 데이터 경로 설계",
-      "개인 SPI RTL과 팀 검증 결과를 구분해 정리"
+      "SPI/I2C Master·Slave RTL 및 송수신 FSM·데이터 경로 설계",
+      "UVM Sequence·Driver·Monitor·Scoreboard·Functional Coverage 구성",
+      "I2C ACK Sampling 시점 수정과 Basys3 보드 간 통신 검증"
     ],
     "implementation": [
       {
@@ -226,31 +226,31 @@
         "text": "송수신 FSM·Shift Register와 SCLK·CS·MOSI/MISO 제어를 구성해 Mode 0 Full-Duplex 데이터 경로를 설계했습니다."
       },
       {
-        "title": "팀 Protocol 검증",
-        "text": "팀 UVM 환경에서 Sequence·Monitor·Scoreboard로 송수신 데이터를 비교하고 I2C START·Address·ACK/NACK·Data·STOP을 관찰했습니다."
+        "title": "SPI/I2C UVM 검증",
+        "text": "UVM Sequence·Driver·Monitor·Scoreboard로 송수신 데이터를 비교하고 I2C START·Address·ACK/NACK·Data·STOP을 검증했습니다."
       }
     ],
     "troubleshooting": [
       {
-        "title": "팀 검증 사례 · I2C ACK 필드 X",
+        "title": "I2C ACK 필드 X",
         "problem": "Data 비교는 통과했지만 ACK/NACK Coverage가 남았습니다.",
         "analysis": "Monitor의 관찰 시점이 9번째 SCL 구간과 맞지 않았습니다.",
-        "action": "팀에서 9번째 SCL High 구간에 SDA를 Sampling하도록 Monitor와 ACK/NACK 시나리오를 수정했습니다.",
-        "result": "팀 완료보고서 기준 I2C 12→14 Pass, Functional Coverage 85.71%→100%."
+        "action": "9번째 SCL High 구간에 SDA를 Sampling하도록 관찰 시점과 ACK/NACK 시나리오를 수정했습니다.",
+        "result": "완료보고서 기준 I2C 12→14 Pass, Functional Coverage 85.71%→100%."
       }
     ],
     "verification": [
       {
         "label": "SPI Scoreboard",
         "value": "48 Pass / 0 Fail",
-        "scope": "팀 검증 결과 · SPI Functional Coverage 59.59% · 미도달 Pattern Bin 존재",
+        "scope": "SPI Functional Coverage 59.59% · 미도달 Pattern Bin 존재",
         "source": "https://github.com/realisshoon/spi_i2c_uvm/blob/main/docs/assets/slide-10.png",
         "status": "historical-verified"
       },
       {
         "label": "I2C Scoreboard",
         "value": "14 Pass / 0 Fail",
-        "scope": "팀 검증 결과 · 완료보고서의 기존 최종 결과 · Functional Coverage 100%",
+        "scope": "완료보고서의 기존 최종 결과 · Functional Coverage 100%",
         "source": "https://drive.google.com/file/d/10GzbqT4t0KN9AIaBSD43hJUAHoV3vFET/view",
         "status": "historical-verified"
       }
@@ -287,11 +287,11 @@
     "github": "https://github.com/realisshoon/spi_i2c_uvm",
     "notion": "https://app.notion.com/p/a2161f29205483f2bf36017f558abe16",
     "limitations": [
-      "개인 설계 담당은 SPI Master/Slave RTL입니다. I2C·UVM·FPGA 시연 수치는 팀 결과이며 SPI 59.59%와 I2C 100%를 합산하지 않습니다."
+      "SPI Functional Coverage 59.59%와 I2C 100%는 각 Protocol에 정의한 Coverpoint 기준의 기존 결과입니다. 두 수치를 합산하거나 Code Coverage로 표시하지 않습니다."
     ],
     "sources": [
       "Notion SPI/I2C · 완료보고서·발표자료 보관본",
-      "GitHub 코드 및 정리한 Notion 프로젝트 · 2026-10-20 대조"
+      "GitHub 코드·완료보고서 및 개인 프로젝트 구분 확인 · 2026-10-21"
     ],
     "techStack": [
       "Verilog",
@@ -311,7 +311,7 @@
         "poster": "demos/spi-board.jpg",
         "type": "gif",
         "title": "SPI Board-to-Board 송수신",
-        "caption": "SPI Master/Slave의 전송 시작과 수신값을 Basys3에서 확인한 팀 시연",
+        "caption": "SPI Master/Slave의 전송 시작과 수신값을 Basys3에서 확인한 시연",
         "source": "https://drive.google.com/file/d/1GAUw21fk42yjwRNzgYWrZOvuf_pZ2ABQ/view",
         "start": 13,
         "duration": 6,
@@ -324,7 +324,7 @@
         "poster": "demos/i2c-board.jpg",
         "type": "gif",
         "title": "I2C Board-to-Board 송수신",
-        "caption": "I2C 전송과 보드 표시값을 확인한 팀 시연",
+        "caption": "I2C 전송과 보드 표시값을 확인한 시연",
         "source": "https://drive.google.com/file/d/1GAUw21fk42yjwRNzgYWrZOvuf_pZ2ABQ/view",
         "start": 35,
         "duration": 6,

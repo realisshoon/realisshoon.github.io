@@ -15,7 +15,7 @@
 - CNN: 7인 팀, 개인 DW/PW·공통 UVM/Golden 환경·연동 참여. 최신 main `fc647991090b3955780308f7e371f94595f9bf7e`의 2026.10.19 XSim 단위 로그를 표시합니다. DW Cin96·3 batches·27 taps·errors0, PW Directed PASS, PW Fault/Recovery 4/4·errors0입니다. 원본 로그를 해당 commit으로 고정 연결했습니다.
 - CNN 과거 G02 29/29 OP·5,174,016개 원소, G06 5/5, G07 4/4는 `CNN_Verification_Evidence.zip`에서 직접 확인한 보관 결과입니다. `archivedVerification`에서 최신 단위 결과와 별도로 표시합니다. DMA/DDR은 TB 모사이며 최신 전체 SoC PASS를 의미하지 않습니다. 최신 전체 Golden UVM 회귀는 입력 자료 문제로 차단됐고 실제 FPGA/로봇 재검증은 미수행입니다.
 - CNN Golden Tensor 비교는 Sequence/Python 경로에서 수행합니다. 빈 파생 Scoreboard가 전체 비교를 수행한 것으로 설명하지 않습니다. PoseNet 0.75와 2026.09.09–10.15 기간은 기존 원본·사용자 확정 기준입니다.
-- SPI/I2C: 3인 팀. 개인 담당은 SPI Master/Slave RTL입니다. I2C·UVM·보드 시연 및 ACK 관찰 수정은 팀 성과입니다. 팀 결과 SPI 48/0·Functional Coverage 59.59%, I2C 14/0·100%를 구분합니다.
+- SPI/I2C: 개인 프로젝트입니다. RTL 설계·UVM 검증·FPGA 보드 시연 및 ACK 관찰 수정까지 개인 수행으로 정정했습니다(2026-10-21 사용자 확인). 기존 결과 SPI 48/0·Functional Coverage 59.59%, I2C 14/0·100%는 각 Protocol 기준으로 구분합니다.
 - VGA: 7인 팀. RGB Filter·좌표/Top 통합·RG Detect UVM·Git 통합이 개인 범위입니다. 확인 가능한 새 raw log가 없는 500/500·100% 문구는 제거했습니다. 게임 FSM·속도 계산·MCP는 팀원 범위입니다.
 - AXI SoC: AXI-SPI IP-level 32 Pass/0 Fail, 4 Directed+12 Random=16 Transaction/32 Check. Functional Coverage 100%는 TXDATA/START_WRITE/DONE_STATUS/SPI_COMPLETE의 4개 Covergroup 범위이며 전체 SoC 또는 Code Coverage가 아닙니다.
 - Watch/Stopwatch: 2인 팀, 개인 FSM·Control Unit·FND. Counter Datapath·Divider·Debounce는 팀원 담당입니다. UART Sensor 프로젝트의 개인 Watch Datapath 역할과 혼동하지 않습니다.

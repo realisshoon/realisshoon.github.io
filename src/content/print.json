@@ -48,19 +48,19 @@
     {
       "id": "spi-i2c",
       "kicker": "02 - RTL DESIGN / UVM / FPGA",
-      "status": "3인 팀 · 개인 SPI RTL 설계",
+      "status": "개인 프로젝트 · RTL / UVM / FPGA",
       "result": "verification",
       "implementations": [
         {
-          "title": "My Role · SPI RTL",
-          "text": "SPI 송수신 FSM·Shift Register, SCLK·CS·MOSI/MISO Full-Duplex 경로 설계."
+          "title": "SPI / I2C RTL",
+          "text": "Master·Slave 송수신 FSM·데이터 경로 설계. SPI Full-Duplex와 I2C ACK/NACK 처리."
         },
         {
-          "title": "Team · UVM Verification",
-          "text": "팀 환경에서 SPI/I2C 송수신·ACK/NACK을 Scoreboard와 Coverage로 확인."
+          "title": "UVM Verification",
+          "text": "Sequence·Driver·Monitor·Scoreboard·Coverage 구성 및 I2C ACK Sampling 시점 수정."
         },
         {
-          "title": "Team · FPGA Validation",
+          "title": "FPGA Validation",
           "text": "Basys3 두 대의 통신과 Logic Analyzer Pin-Level 동작 확인."
         }
       ],
@@ -86,7 +86,7 @@
           "데이터·Coverage"
         ]
       ],
-      "scope": "개인 담당은 SPI Master/Slave RTL입니다. 표시한 UVM·보드 결과와 I2C ACK 수정은 팀 성과입니다. SPI Functional Coverage 59.59%와 I2C 100%를 구분합니다."
+      "scope": "RTL 설계·UVM 검증·FPGA 보드 통신을 직접 수행한 개인 프로젝트입니다. SPI Functional Coverage 59.59%와 I2C 100%는 각 Protocol의 Coverpoint 기준 결과입니다."
     },
     {
       "id": "axi-multi-peripheral",
