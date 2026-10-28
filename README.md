@@ -84,3 +84,12 @@ python3 scripts/prepare-demo-gifs.py --source-dir /path/to/originals --ffmpeg /p
 npm run check:content
 npm run build
 ```
+
+## 내 브라우저 방문 측정 제외 (GA4)
+
+공개 사이트에서 **한 번만** 아래 주소에 접속하면 해당 브라우저의 `localStorage`에 제외 설정이 저장됩니다. Wi-Fi/공인 IP가 바뀌어도 같은 브라우저·사이트 데이터가 유지되는 동안 GA4 태그를 로드하지 않습니다.
+
+- 제외 등록: https://realisshoon.github.io/?analytics_off=1
+- 측정 다시 켜기: https://realisshoon.github.io/?analytics_on=1
+
+설정 URL은 적용 후 주소창에서 제거됩니다(다른 UTM 파라미터는 보존). **기기 전체 등록이 아니라 브라우저/프로필별 설정**이므로 Mac Chrome, Windows Chrome, iPhone Safari 등에서는 각각 등록해야 합니다. 시크릿 모드나 사이트 데이터 삭제 후에는 다시 등록해야 할 수 있습니다. 과거에 이미 수집된 방문은 삭제되지 않습니다. 등록 링크를 QR 코드나 타인에게 보내지 마세요. 사용자가 GA4 자체에서 개별 기기 식별자를 등록하는 기능은 아닙니다.
