@@ -57,7 +57,7 @@
         },
         {
           "title": "UVM Verification",
-          "text": "Sequence·Driver·Monitor·Scoreboard·Coverage 구성 및 I2C ACK Sampling 시점 수정."
+          "text": "Sequence·Driver·Monitor·Scoreboard·Coverage 구성. 후속 데이터·Pin Timing 검사 대조."
         },
         {
           "title": "FPGA Validation",
@@ -66,7 +66,7 @@
       ],
       "images": [
         0,
-        1
+        2
       ],
       "flow": [
         [
@@ -86,7 +86,7 @@
           "데이터·Coverage"
         ]
       ],
-      "scope": "RTL 설계·UVM 검증·FPGA 보드 통신을 직접 수행한 개인 프로젝트입니다. SPI Functional Coverage 59.59%와 I2C 100%는 각 Protocol의 Coverpoint 기준 결과입니다."
+      "scope": "2026.10.19 후속 실행의 정상 회귀 집계입니다. Coverage는 각 모델의 raw bin 기준이며 초기 보드 시연과 구분합니다. 실행·소스·과거 결과는 웹 Evidence에서 확인할 수 있습니다."
     },
     {
       "id": "axi-multi-peripheral",

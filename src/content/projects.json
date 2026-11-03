@@ -214,71 +214,95 @@
     "featured": false,
     "teamGoal": "",
     "teamResult": "",
-    "overview": "SPI/I2C Master·Slave RTL 설계부터 UVM 검증, Basys3 보드 간 통신까지 직접 수행한 개인 프로젝트입니다. Sequence·Monitor·Scoreboard로 송수신과 ACK/NACK을 확인하고 Functional Coverage를 분석했습니다.",
+    "overview": "SPI/I2C Master·Slave RTL과 각각의 UVM 환경을 구현하고 Basys3 보드 간 통신을 확인한 개인 프로젝트입니다. 후속 검증에서는 데이터 비교와 Pin Timing 검사를 분리해 마지막 SCLK High 폭 문제를 확인했습니다.",
     "contributions": [
       "SPI/I2C Master·Slave RTL 및 송수신 FSM·데이터 경로 설계",
       "UVM Sequence·Driver·Monitor·Scoreboard·Functional Coverage 구성",
-      "I2C ACK Sampling 시점 수정과 Basys3 보드 간 통신 검증"
+      "Basys3 보드 간 통신 확인, 후속 로그·파형과 RTL 수정 내역 분석"
     ],
     "implementation": [
       {
-        "title": "SPI Master / Slave RTL",
-        "text": "송수신 FSM·Shift Register와 SCLK·CS·MOSI/MISO 제어를 구성해 Mode 0 Full-Duplex 데이터 경로를 설계했습니다."
+        "title": "SPI · Full-Duplex와 Timing 검사",
+        "text": "Mode 0·8-bit·MSB First 송수신을 구현했습니다. 후속 Monitor는 MOSI/MISO를 Pin에서 복원하고 병렬 RX와 함께 양방향 데이터를 비교하며, SCLK 반주기·CS 종료를 별도로 검사합니다."
       },
       {
-        "title": "SPI/I2C UVM 검증",
-        "text": "UVM Sequence·Driver·Monitor·Scoreboard로 송수신 데이터를 비교하고 I2C START·Address·ACK/NACK·Data·STOP을 검증했습니다."
+        "title": "I2C · 주소 기반 Read / Write",
+        "text": "독립된 UVM 환경에서 START·STOP, SDA 구동·해제와 ACK/NACK을 확인했습니다. 후속 검증의 Wrapper ACK 포트 연결 수정과 Pin 복원값 비교는 과거 ACK Sampling 설명과 구분합니다."
       }
     ],
     "troubleshooting": [
       {
-        "title": "I2C ACK 필드 X",
-        "problem": "Data 비교는 통과했지만 ACK/NACK Coverage가 남았습니다.",
-        "analysis": "Monitor의 관찰 시점이 9번째 SCL 구간과 맞지 않았습니다.",
-        "action": "9번째 SCL High 구간에 SDA를 Sampling하도록 관찰 시점과 ACK/NACK 시나리오를 수정했습니다.",
-        "result": "완료보고서 기준 I2C 12→14 Pass, Functional Coverage 85.71%→100%."
+        "title": "데이터 비교가 놓친 마지막 SCLK High 폭",
+        "problem": "데이터는 8/8 PASS였지만 마지막 SCLK High가 10ns로 짧았습니다. clk_div=4, Tsys=10ns의 기대값은 (4+1)×10ns=50ns입니다.",
+        "analysis": "DATA에서는 Divider의 half_tick으로 전환하지만, STOP은 다음 시스템 클럭에 바로 SCLK를 내렸습니다. 두 상태의 Divider·종료 조건을 대조했습니다.",
+        "action": "후속 RTL에서 STOP도 half_tick을 생성·대기하도록 변경했습니다. 마지막 High 반주기를 유지한 뒤 SCLK=0, CS_N=1로 종료합니다.",
+        "result": "동일 seed 55 테스트: High 935–945ns(10ns) → 935–985ns(50ns). 데이터 8/8 PASS 유지, 절차형 PIN Timing 오류 4→0건."
       }
     ],
     "verification": [
       {
-        "label": "SPI Scoreboard",
-        "value": "48 Pass / 0 Fail",
-        "scope": "SPI Functional Coverage 59.59% · 미도달 Pattern Bin 존재",
-        "source": "https://github.com/realisshoon/spi_i2c_uvm/blob/main/docs/assets/slide-10.png",
-        "status": "historical-verified"
+        "label": "SPI · Data Checks",
+        "value": "22,386 / 22,386 PASS",
+        "scope": "16 Runs · 11,193 transfers · PIN 오류 0. FC raw bins: legacy 65/67 · enhanced 20/20.",
+        "source": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/audit/canonical_runs.csv",
+        "status": "verified"
       },
       {
-        "label": "I2C Scoreboard",
-        "value": "14 Pass / 0 Fail",
-        "scope": "완료보고서의 기존 최종 결과 · Functional Coverage 100%",
-        "source": "https://drive.google.com/file/d/10GzbqT4t0KN9AIaBSD43hJUAHoV3vFET/view",
-        "status": "historical-verified"
+        "label": "I2C · Checks",
+        "value": "26,038 / 26,038 PASS",
+        "scope": "15 Runs · 11,140 transactions · PIN 오류 0. FC raw bins: legacy 25/25 · enhanced 18/19.",
+        "source": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/audit/canonical_runs.json",
+        "status": "verified"
       }
     ],
     "media": [
       {
         "src": "slide-24.png",
         "title": "Basys3 Board-to-Board 검증",
-        "caption": "SPI/I2C 원본 발표자료 · Logic Analyzer 동작 확인",
+        "caption": "초기 개인 프로젝트의 실제 Basys3 통신 · 후속 RTL의 보드 재검증 자료와 구분",
         "type": "image",
         "poster": null
       },
       {
-        "src": "slide-10.png",
-        "title": "SPI UVM 검증 결과",
-        "caption": "기존 발표자료 원본",
+        "src": "spi-i2c/spi-timing-log-comparison.png",
+        "title": "데이터 PASS와 Timing 판정 · 원본 로그",
+        "caption": "seed 55 · N=4 · pulse_before → closed. PIN·RESULT·Scoreboard·UVM 요약을 같은 필터로 발췌(그 외 행 생략). 2026.10.19 실행.",
         "type": "image",
         "poster": null
       },
       {
-        "src": "slide-22.png",
-        "title": "I2C ACK 관찰 문제",
-        "caption": "기존 발표자료 원본 · Sampling 시점 디버깅",
+        "src": "spi-i2c/spi-terminal-high-native-comparison.png",
+        "title": "마지막 SCLK High · 실제 파형 비교",
+        "caption": "PT의 실제 파형 · 동일 신호·시간축, 첫 transfer의 clk_div=4. 935–945ns → 935–985ns. pulse_before / closed · seed 55.",
         "type": "image",
         "poster": null
       }
     ],
     "evidence": [
+      {
+        "label": "실행·이미지 출처 / 과거 결과",
+        "url": "https://github.com/realisshoon/realisshoon.github.io/blob/main/public/evidence/spi-i2c/README.md"
+      },
+      {
+        "label": "Before 원본 로그",
+        "url": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/evidence/spi/runs/pulse_before_failure_s55_n4/sim.log"
+      },
+      {
+        "label": "After 원본 로그",
+        "url": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/evidence/spi/runs/closed_smoke_s55_n4/sim.log"
+      },
+      {
+        "label": "STOP / half_tick RTL diff",
+        "url": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/source_diffs/spi/rtl/spi_master.sv.patch"
+      },
+      {
+        "label": "SPI URG 텍스트 보고서",
+        "url": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/evidence/spi/coverage/closed_final/groups.txt"
+      },
+      {
+        "label": "I2C URG 텍스트 보고서",
+        "url": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/evidence/i2c/coverage/distributed/groups.txt"
+      },
       {
         "label": "완료보고서",
         "url": "https://drive.google.com/file/d/10GzbqT4t0KN9AIaBSD43hJUAHoV3vFET/view"
@@ -287,11 +311,13 @@
     "github": "https://github.com/realisshoon/spi_i2c_uvm",
     "notion": "https://app.notion.com/p/a2161f29205483f2bf36017f558abe16",
     "limitations": [
-      "SPI Functional Coverage 59.59%와 I2C 100%는 각 Protocol에 정의한 Coverpoint 기준의 기존 결과입니다. 두 수치를 합산하거나 Code Coverage로 표시하지 않습니다."
+      "정상 회귀의 Run·완료 Transfer/Transaction·Check를 구분한 집계입니다. Coverage는 서로 다른 모델의 raw bin 기준이며, 과거 수치와 단순 전후 비교하지 않습니다."
     ],
     "sources": [
-      "Notion SPI/I2C · 완료보고서·발표자료 보관본",
-      "GitHub 코드·완료보고서 및 개인 프로젝트 구분 확인 · 2026-10-21"
+      "초기 개인 프로젝트: 2026.06.11–06.18. 후속 검증: 2026.10.19 실행, 10.28 보존·집계, 11.03 원본 로그 재대조.",
+      "보강 자료는 cca083e3 고정. closed / resetload / distributed의 실행별 snapshot·로그·Coverage 원본을 대조했습니다.",
+      "과거 보관 결과: SPI 48 Pass / 0 Fail·FC 59.59%, I2C 14 Pass / 0 Fail·FC 100%. I2C ACK Sampling의 과거 설명과 후속 Wrapper 연결 수정은 별개입니다.",
+      "파형은 한승훈 iHW PT 발표 자료 PDF 11페이지의 Native 캡처 원본을 추출했습니다. 실행·소스·이미지 대응은 Evidence index에 기록했습니다."
     ],
     "techStack": [
       "Verilog",
@@ -304,14 +330,14 @@
     "coverPoster": null,
     "featuredVerification": "",
     "archivedVerification": [],
-    "verificationLabel": "완료 당시 결과",
+    "verificationLabel": "2026.10.19 실행 · 정상 회귀 집계",
     "demos": [
       {
         "src": "demos/spi-board.gif",
         "poster": "demos/spi-board.jpg",
         "type": "gif",
         "title": "SPI Board-to-Board 송수신",
-        "caption": "SPI Master/Slave의 전송 시작과 수신값을 Basys3에서 확인한 시연",
+        "caption": "SPI Master/Slave의 전송 시작과 수신값을 Basys3에서 확인한 시연 · 초기 프로젝트 시연",
         "source": "https://drive.google.com/file/d/1GAUw21fk42yjwRNzgYWrZOvuf_pZ2ABQ/view",
         "start": 13,
         "duration": 6,
@@ -324,7 +350,7 @@
         "poster": "demos/i2c-board.jpg",
         "type": "gif",
         "title": "I2C Board-to-Board 송수신",
-        "caption": "I2C 전송과 보드 표시값을 확인한 시연",
+        "caption": "I2C 전송과 보드 표시값을 확인한 시연 · 초기 프로젝트 시연",
         "source": "https://drive.google.com/file/d/1GAUw21fk42yjwRNzgYWrZOvuf_pZ2ABQ/view",
         "start": 35,
         "duration": 6,
