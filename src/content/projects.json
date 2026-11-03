@@ -243,14 +243,14 @@
       {
         "label": "SPI · Data Checks",
         "value": "22,386 / 22,386 PASS",
-        "scope": "16 Runs · 11,193 transfers · PIN 오류 0. FC raw bins: legacy 65/67 · enhanced 20/20.",
+        "scope": "정상 회귀 · 16 Runs · 11,193 transfers · PIN 오류 0",
         "source": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/audit/canonical_runs.csv",
         "status": "verified"
       },
       {
         "label": "I2C · Checks",
         "value": "26,038 / 26,038 PASS",
-        "scope": "15 Runs · 11,140 transactions · PIN 오류 0. FC raw bins: legacy 25/25 · enhanced 18/19.",
+        "scope": "정상 회귀 · 15 Runs · 11,140 transactions · PIN 오류 0",
         "source": "https://github.com/realisshoon/spi_i2c_uvm/blob/cca083e3b6c81394135c7ed01b64c456f65daafe/verification/2026-10-28/audit/canonical_runs.json",
         "status": "verified"
       }
@@ -273,7 +273,7 @@
       {
         "src": "spi-i2c/spi-terminal-high-native-comparison.png",
         "title": "마지막 SCLK High · 실제 파형 비교",
-        "caption": "PT Native 캡처 · 동일 신호·시간축 · seed 55, 첫 transfer의 clk_div=4 · 935–945ns → 935–985ns.",
+        "caption": "PT 원본 파형 · seed 55 / clk_div=4 · High 10ns → 50ns",
         "type": "image",
         "poster": null
       }
@@ -316,6 +316,7 @@
     "sources": [
       "초기 개인 프로젝트: 2026.06.11–06.18. 후속 검증: 2026.10.19 실행, 10.28 보존·집계, 11.03 원본 로그 재대조.",
       "보강 자료는 cca083e3 고정. closed / resetload / distributed의 실행별 snapshot·로그·Coverage 원본을 대조했습니다.",
+      "정상 merge FC raw bins: SPI legacy 65/67·enhanced 20/20, I2C legacy 25/25·enhanced 18/19. 모델별 URG 텍스트 보고서와 집계 구성은 Evidence에 연결했습니다.",
       "과거 보관 결과: SPI 48 Pass / 0 Fail·FC 59.59%, I2C 14 Pass / 0 Fail·FC 100%. I2C ACK Sampling의 과거 설명과 후속 Wrapper 연결 수정은 별개입니다.",
       "파형은 한승훈 iHW PT 발표 자료 PDF 11페이지의 Native 캡처 원본을 추출했습니다. 실행·소스·이미지 대응은 Evidence index에 기록했습니다."
     ],

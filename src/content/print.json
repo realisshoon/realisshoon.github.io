@@ -61,7 +61,7 @@
         },
         {
           "title": "FPGA Validation",
-          "text": "Basys3 두 대의 통신과 Logic Analyzer Pin-Level 동작 확인."
+          "text": "Basys3 두 대의 통신과 Logic Analyzer Pin 동작 확인."
         }
       ],
       "images": [
@@ -86,7 +86,7 @@
           "데이터·Coverage"
         ]
       ],
-      "scope": "2026.10.19 정상 회귀 집계 · 모델별 FC raw bins. 초기 보드 시연과 후속 검증을 구분하며 실행·소스·과거 결과는 웹 Evidence에 보존했습니다."
+      "scope": "2026.10.19 정상 회귀 집계 · 초기 보드 시연과 구분. Coverage 모델·실행·과거 결과·원본 자료는 웹 Evidence에 보존했습니다."
     },
     {
       "id": "axi-multi-peripheral",
