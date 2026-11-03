@@ -233,10 +233,10 @@
     "troubleshooting": [
       {
         "title": "데이터 비교가 놓친 마지막 SCLK High 폭",
-        "problem": "데이터는 8/8 PASS였지만 마지막 SCLK High가 10ns로 짧았습니다. clk_div=4, Tsys=10ns의 기대값은 (4+1)×10ns=50ns입니다.",
-        "analysis": "DATA에서는 Divider의 half_tick으로 전환하지만, STOP은 다음 시스템 클럭에 바로 SCLK를 내렸습니다. 두 상태의 Divider·종료 조건을 대조했습니다.",
-        "action": "후속 RTL에서 STOP도 half_tick을 생성·대기하도록 변경했습니다. 마지막 High 반주기를 유지한 뒤 SCLK=0, CS_N=1로 종료합니다.",
-        "result": "동일 seed 55 테스트: High 935–945ns(10ns) → 935–985ns(50ns). 데이터 8/8 PASS 유지, 절차형 PIN Timing 오류 4→0건."
+        "problem": "데이터 8/8 PASS, 마지막 SCLK High는 10ns. clk_div=4, Tsys=10ns의 기대값은 (4+1)×10ns=50ns입니다.",
+        "analysis": "DATA/STOP의 Divider·SCLK 조건을 대조해 STOP의 half_tick 대기 누락을 확인했습니다.",
+        "action": "후속 RTL에서 STOP도 half_tick을 생성·대기하도록 수정했습니다. High 반주기를 유지한 뒤 SCLK=0, CS_N=1로 종료합니다.",
+        "result": "seed 55: High 935–945ns(10ns) → 935–985ns(50ns). 데이터 8/8 PASS 유지, PIN Timing 오류 4→0건."
       }
     ],
     "verification": [
@@ -259,7 +259,7 @@
       {
         "src": "slide-24.png",
         "title": "Basys3 Board-to-Board 검증",
-        "caption": "초기 개인 프로젝트의 실제 Basys3 통신 · 후속 RTL의 보드 재검증 자료와 구분",
+        "caption": "초기 개인 프로젝트의 실제 Basys3 Board-to-Board 통신",
         "type": "image",
         "poster": null
       },
@@ -273,7 +273,7 @@
       {
         "src": "spi-i2c/spi-terminal-high-native-comparison.png",
         "title": "마지막 SCLK High · 실제 파형 비교",
-        "caption": "PT의 실제 파형 · 동일 신호·시간축, 첫 transfer의 clk_div=4. 935–945ns → 935–985ns. pulse_before / closed · seed 55.",
+        "caption": "PT Native 캡처 · 동일 신호·시간축 · seed 55, 첫 transfer의 clk_div=4 · 935–945ns → 935–985ns.",
         "type": "image",
         "poster": null
       }
