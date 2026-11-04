@@ -504,6 +504,10 @@
       {
         "label": "원본 시연 영상",
         "url": "https://github.com/realisshoon/fpga-vga-conductor-game/blob/main/docs/demo/%EC%A7%80%ED%9C%98%EA%B2%8C%EC%9E%84%20%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4"
+      },
+      {
+        "label": "기능별 GIF 6개 전체",
+        "url": "https://github.com/realisshoon/fpga-vga-conductor-game/tree/main/docs/demo/gifs"
       }
     ],
     "github": "https://github.com/realisshoon/fpga-vga-conductor-game",
@@ -529,17 +533,56 @@
     "verificationLabel": "완료 당시 결과",
     "demos": [
       {
-        "src": "demos/vga-game.gif",
-        "poster": "demos/vga-game.jpg",
+        "src": "demos/fpga-camera/gif1-volume.gif",
+        "poster": "demos/fpga-camera/poster1.jpg",
         "type": "gif",
-        "title": "FPGA VGA 지휘게임 시연",
-        "caption": "카메라의 손 좌표 검출과 PC 게임 화면을 연결한 팀 시연",
+        "title": "01. 손 높이로 음량 조절",
+        "caption": "초록색 손 표식의 높이 변화가 왼쪽 VOLUME 막대에 반영되는 팀 시연입니다.",
         "source": "https://github.com/realisshoon/fpga-vga-conductor-game/blob/1a9b05f2e1142ee4140b4132cc1cd278a7374ec7/docs/demo/%EC%A7%80%ED%9C%98%EA%B2%8C%EC%9E%84%20%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4",
-        "start": 10,
+        "start": 9,
+        "duration": 4.6,
+        "width": 800,
+        "height": 450,
+        "bytes": 2410789
+      },
+      {
+        "src": "demos/fpga-camera/gif2-pattern.gif",
+        "poster": "demos/fpga-camera/poster2.jpg",
+        "type": "gif",
+        "title": "02. 4박 지휘 패턴 인식",
+        "caption": "빨간색 지휘봉의 좌표와 노란색 Zone 표시로 4박 패턴의 진행을 확인하는 팀 시연입니다.",
+        "source": "https://github.com/realisshoon/fpga-vga-conductor-game/blob/1a9b05f2e1142ee4140b4132cc1cd278a7374ec7/docs/demo/%EC%A7%80%ED%9C%98%EA%B2%8C%EC%9E%84%20%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4",
+        "start": 13.8,
         "duration": 6,
-        "width": 480,
-        "height": 270,
-        "bytes": 1338827
+        "width": 800,
+        "height": 450,
+        "bytes": 2639685
+      },
+      {
+        "src": "demos/fpga-camera/gif3-score-up.gif",
+        "poster": "demos/fpga-camera/poster3.jpg",
+        "type": "gif",
+        "title": "03. BPM에 따른 점수 상승",
+        "caption": "지휘 속도에 따른 BPM·점수·관객 반응의 변화를 확인하는 팀 시연입니다. 빨간색 점수 조건 설명은 원본 영상의 주석입니다.",
+        "source": "https://github.com/realisshoon/fpga-vga-conductor-game/blob/1a9b05f2e1142ee4140b4132cc1cd278a7374ec7/docs/demo/%EC%A7%80%ED%9C%98%EA%B2%8C%EC%9E%84%20%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4",
+        "start": 19.8,
+        "duration": 6,
+        "width": 800,
+        "height": 450,
+        "bytes": 2870950
+      },
+      {
+        "src": "demos/fpga-camera/fpga-demo-audio.mp4",
+        "poster": "demos/fpga-camera/poster2.jpg",
+        "type": "video",
+        "title": "소리 포함 전체 시연",
+        "caption": "재생 버튼을 누르면 음악·템포·음량 변화와 결과 효과음을 함께 확인할 수 있습니다. 원본 오디오를 유지한 4.87 MB 경량 영상입니다.",
+        "source": "https://github.com/realisshoon/fpga-vga-conductor-game/blob/1a9b05f2e1142ee4140b4132cc1cd278a7374ec7/docs/demo/%EC%A7%80%ED%9C%98%EA%B2%8C%EC%9E%84%20%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4",
+        "start": 0,
+        "duration": 68.14,
+        "width": 960,
+        "height": 540,
+        "bytes": 4872559
       }
     ]
   },

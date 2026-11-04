@@ -16,5 +16,7 @@
 .card-demo-toggle:hover{background:#fff;border-color:var(--primary)}
 .demo-source{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 14px;background:var(--pale);font-size:11px;color:var(--muted);border:1px solid var(--line);border-top:0}
 .demo-source a{font-weight:700;color:var(--primary)}
+.demo-collection-link{font-size:12px;font-weight:700;color:var(--primary);line-height:1.6;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:700px){.project-visual .project-image,.featured .project-visual .project-image{height:auto;aspect-ratio:1.45}.project-visual.has-demo .project-image{padding-bottom:40px}.demo-source{font-size:10px;padding:10px 12px}.card-demo-toggle{right:10px;bottom:8px}}
 .lightbox img{max-width:100%;height:auto}
+
